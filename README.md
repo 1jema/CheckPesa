@@ -13,6 +13,16 @@ CheckPesa is a financial analytics platform designed specifically for M-Pesa use
 - [Usage Guide](#usage-guide)
 - [Project Structure](#project-structure)
 
+<!--
+Screenshots: add images to a docs/ folder (all with fake data only), then remove this comment wrapper.
+
+## Screenshots
+
+![Dashboard](docs/dashboard.png)
+![Transactions](docs/transactions.png)
+![ChatPesa](docs/chatpesa.png)
+-->
+
 ## Features
 
 ### Core Functionality
@@ -28,17 +38,18 @@ CheckPesa is a financial analytics platform designed specifically for M-Pesa use
 - **Temporal Analysis**: Group transactions by hour, day, week, month, or year
 - **Top Lists**: View top senders, receivers, categories, and transaction patterns
 
-### AI-Powered Insights
+### AI-Powered Insights (Google Gemini)
 
 - **Financial Assessment**: Generate AI analysis of spending patterns and financial health
 - **Personalized Recommendations**: Get tailored financial advice based on transaction history
+- **ChatPesa**: A conversational assistant that lets you ask questions about your finances in natural language and get AI-generated insights into your spending
 - **Multiple Analysis Modes**: Choose between "Serious Mode" for professional insights or "Roast Mode" for humorous financial feedback
 
 ### User Experience
 
 - **Responsive Design**: Fully responsive interface that works on desktop and mobile devices
 - **Offline Capability**: Local database storage for secure offline access
-- **Privacy-Focused**: All data is storeed locally in the browser (IndexDB)
+- **Privacy-Focused**: All data is stored locally in the browser (IndexedDB)
 
 ## Tech Stack
 
@@ -53,6 +64,9 @@ CheckPesa is a financial analytics platform designed specifically for M-Pesa use
 - **PDF Processing**: PyMuPDF
 - **API**: RESTful endpoint for sending pdf for processing
 
+### AI
+- **Model provider**: Google Gemini API
+
 ## Getting Started
 
 ### Prerequisites
@@ -60,6 +74,7 @@ CheckPesa is a financial analytics platform designed specifically for M-Pesa use
 - Node.js (v18+)
 - Python (3.9+)
 - pip (Python package manager)
+- A Google Gemini API key for the AI features (free from [Google AI Studio](https://aistudio.google.com))
 
 ### Backend Setup
 
@@ -85,7 +100,7 @@ CheckPesa is a financial analytics platform designed specifically for M-Pesa use
    python app.py
    ```
 
-   The backend API will be available at http://localhost:5000
+   The backend API will be available at http://localhost:8000
 
 ### Frontend Setup
 
@@ -99,7 +114,17 @@ CheckPesa is a financial analytics platform designed specifically for M-Pesa use
    npm install --legacy-peer-deps
    ```
 
-3. Start the development server:
+3. Add your Gemini API key. Copy the example environment file and put your own key in it:
+   ```bash
+   cp .env.example .env
+   ```
+   Then open `.env` and set:
+   ```
+   VITE_GEMINI_API_KEY=your_key_here
+   ```
+   The `.env` file is ignored by Git, so your key is never uploaded. Never commit a real key.
+
+4. Start the development server:
    ```bash
    npm run dev
    ```
@@ -108,12 +133,12 @@ CheckPesa is a financial analytics platform designed specifically for M-Pesa use
 
 ## Usage Guide
 
-### Uploading M-Pesa Statements
+### Loading Data
 
-1. A sample statement has been provided with the password for the statement
-2. Select your PDF file and enter the password after clicking "Upload Button" on the top-right of the screen
-3. The system will automatically parse and load your transactions
-4. Alternatively, you can click on the 'generate fake data' button at the top right
+1. To use your own data, click the "Upload Button" on the top-right of the screen, select your M-Pesa PDF statement and enter the statement's password
+2. The system will automatically parse and load your transactions
+3. Alternatively, you can click on the 'generate fake data' button at the top right to explore the app with sample data
+
 ### Categorizing Transactions
 
 1. Navigate to the Transactions page
@@ -127,7 +152,7 @@ CheckPesa is a financial analytics platform designed specifically for M-Pesa use
 2. Navigate to Categories to see spending breakdowns by category
 3. Visit the Accounts page to analyze transactions by sender/receiver
 4. Use the date range filter to focus on specific time periods
-5. Try the AI Analysis feature for personalized financial insights
+5. Try the AI Analysis feature or chat with ChatPesa for personalized financial insights
 
 ## Project Structure
 
