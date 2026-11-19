@@ -13,15 +13,19 @@ CheckPesa is a financial analytics platform designed specifically for M-Pesa use
 - [Usage Guide](#usage-guide)
 - [Project Structure](#project-structure)
 
-<!--
-Screenshots: add images to a docs/ folder (all with fake data only), then remove this comment wrapper.
-
 ## Screenshots
 
+### Dashboard
 ![Dashboard](docs/dashboard.png)
+
+### Transactions
 ![Transactions](docs/transactions.png)
+
+### AI Financial Assessment
+![AI Financial Assessment](docs/ai-assessment.png)
+
+### ChatPesa
 ![ChatPesa](docs/chatpesa.png)
--->
 
 ## Features
 
