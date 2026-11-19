@@ -1,0 +1,30 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Build output
+dist/
+build/
+
+# Real data and uploads
+*.pdf
+*.csv
+uploads/
+
+# Mac / editor
+.DS_Store
+.vscode/
+
+# Your existing entries
+flat_repository/
+flat_repository.zip
+flat_repo.sh
+repository_files.txt
